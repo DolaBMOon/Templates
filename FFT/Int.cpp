@@ -8,7 +8,7 @@ const int N=1e6+10;
 const int MOD=998244353;
 const int g=3;
 
-inline int Mul(int a,int b)
+int Mul(int a,int b)
 {
 	unsigned long long x=(long long)a*b;
 	unsigned xh=(unsigned)(x>>32),xl=(unsigned)x,d,m;
