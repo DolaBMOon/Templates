@@ -6,7 +6,7 @@ const double eps=1e-6;
 
 double f(double x)
 {
-	//It's what to be Integrated.
+	//It's what to be integrated.
 	return 233;
 }
 
