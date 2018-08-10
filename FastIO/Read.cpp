@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 
-const int _B=100000;
+const int _B=4e5;
 
 char Nc()
 {
