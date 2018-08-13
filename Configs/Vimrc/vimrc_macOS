@@ -1,6 +1,8 @@
+set si
 set number
 set scrolloff=30
-set si
+set tw=4
+set ts=4
 syntax on
 vmap "+y :w !pbcopy<CR><CR>
 nmap "+p :r !pbpaste<CR><CR>
