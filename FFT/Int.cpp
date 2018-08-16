@@ -39,6 +39,16 @@ void SU(int& x,int y)
 	((x+=y)>=MOD)?(x-=MOD):0;
 }
 
+int D(int x,int y)
+{
+  return ((x-=y)<0)?(x+MOD):x;
+}
+
+void SD(int& x,int y)
+{
+  return ((x-=y)<0)?(x+=MOD):0;
+}
+
 void FFT(Poly& A,bool fl)
 {
 	int L=A.size();
@@ -73,7 +83,7 @@ void FFT(Poly& A,bool fl)
 			for(int k=0;k<i;++k)
 			{
 				t=Mul(A[i+j+k],w[k]);
-				A[i+j+k]=U(A[j+k],MOD-t);
+				A[i+j+k]=D(A[j+k],t);
 				SU(A[j+k],t);
 			}
 		}
