@@ -1,15 +1,6 @@
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<cstring>
-#include<cstdio>
-#include<cmath>
+#include<bits/stdc++.h>
 
 using namespace std;
-
-#define Line Seg
-#define Angle Seg
-#define double long double
 
 const double PI=3.1415926535897932384626433;
 
@@ -43,14 +34,35 @@ Vector operator+(const Vector& a,const Vector& b)
 	return (Vector){a.x+b.x,a.y+b.y};
 }
 
+Vector operator+=(Vector& a,const Vector& b)
+{
+	a.x+=b.x;
+	a.y+=b.y;
+	return a;
+}
+
 Vector operator-(const Vector& a,const Vector& b)
 {
 	return (Vector){a.x-b.x,a.y-b.y};
 }
 
+Vector operator-=(Vector& a,const Vector& b)
+{
+	a.x+=b.x;
+	a.y+=b.y;
+	return a;
+}
+
 Vector operator*(const Vector& a,double b)
 {
 	return (Vector){a.x*b,a.y*b};
+}
+
+Vector operator*=(Vector& a,double b)
+{
+	a.x*=b;
+	a.y*=b;
+	return a;
 }
 
 Vector operator*(double a,const Vector& b)
@@ -60,12 +72,34 @@ Vector operator*(double a,const Vector& b)
 
 Vector operator*(const Vector& a,const Vector& b)
 {
-	return (Vector){a.x*a.x-b.y*b.y,a.x*b.y+a.y*b.x};
+	return (Vector){a.x*b.x-a.y*b.y,a.x*b.y+a.y*b.x};
+}
+
+Vector operator*=(Vector& a,const Vector& b)
+{
+	return a=a*b;
 }
 
 Vector operator/(const Vector& a,double b)
 {
 	return (Vector){a.x/b,a.y/b};
+}
+
+Vector operator/=(Vector& a,double b)
+{
+	a.x/=b;
+	a.y/=b;
+	return a;
+}
+
+bool operator<(const Vector& a,const Vector& b)
+{
+	return (a.x!=b.x)?(a.x<b.x):(a.y<b.y);
+}
+
+bool operator>(const Vector& a,const Vector& b)
+{
+	return (a.x!=b.x)?(a.x>b.x):(a.y>b.y);
 }
 
 double Dcmp(double x)
@@ -93,9 +127,15 @@ double Dist(const Vector& a,const Vector& b)
 	return sqrt(Sqr(a.x-b.x)+Sqr(a.y-b.y));
 }
 
-double dist(const Vector& a,const Line& b)
+double DistToLine(const Vector& a,const Line& b)
 {
 	return abs(Det(b.v,a-b.u)/Abs(b.v));
+}
+
+double Angle(Vector a,Vector b)
+{
+	double t=fmod(abs(atan2(a.y,a.x)-atan2(b.y,b.x)),2*PI);
+	return min(t,2*PI-t);
 }
 
 Vector Rot90(const Vector& a)
@@ -114,6 +154,32 @@ Vector Fix(Vector a)
 Vector Intersection(const Line& a,const Line& b)
 {
 	return a.u+a.v*Det(b.u-a.u,b.v*(-1))/Det(a.v,b.v*(-1));
+}
+
+const int N=1000000+10;
+int stk[N],tp;
+
+void ConvexHull(Vector* p,int n)
+{
+	static int id[N];
+	for(int i=1;i<=n;++i)
+		id[i]=i;
+	sort(id+1,id+n+1,[p](int a,int b)->bool{return p[a].x<p[b].x;});
+	for(int i=1;i<=n;++i)
+	{
+		Vector& a=p[id[i]];
+		while(tp>1&&Det(a-p[stk[tp-1]],p[stk[tp]]-p[stk[tp-1]])<=0)
+			--tp;
+		stk[++tp]=id[i];
+	}
+	int rec=tp;
+	for(int i=n-1;i>=1;--i)
+	{
+		Vector& a=p[id[i]];
+		while(tp>rec&&Det(a-p[stk[tp-1]],p[stk[tp]]-p[stk[tp-1]])<=0)
+			--tp;
+		stk[++tp]=id[i];
+	}
 }
 
 int main()
