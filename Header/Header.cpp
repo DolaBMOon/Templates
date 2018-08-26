@@ -21,7 +21,7 @@ using namespace std;
 #define Oops() cout<<"!!!!!!!!!!!!!!!"<<endl
 
 /*
-That's how everything starts.
+-<Unlimited Blade Works>-
 */
 
 int main()
