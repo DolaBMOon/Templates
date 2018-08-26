@@ -7,6 +7,7 @@
 //%:pragma GCC diagnostic error "-fcse-skip-blocks"
 //%:pragma GCC diagnostic error "-funsafe-loop-optimizations"
 //%:pragma GCC diagnostic error "-std=c++14"
+
 #include<iostream>
 #include<algorithm>
 #include<cstdio>
