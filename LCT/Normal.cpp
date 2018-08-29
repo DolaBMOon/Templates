@@ -28,7 +28,7 @@ bool isRt(int x)
 	return ch[fa[x]][0]!=x&&ch[fa[x]][1]!=x;
 }
 
-void Update(int x)
+void Pullup(int x)
 {
 	sm[x]=w[x]+sm[ch[x][0]]+sm[ch[x][1]];
 }
@@ -37,16 +37,13 @@ void Rotate(int x)
 {
 	register int f=fa[x],gf=fa[f],k=Which(x);
 	if(!isRt(f))
-	{
 		ch[gf][Which(f)]=x;
-		Update(gf);
-	}
 	fa[x]=gf;
 	fa[ch[f][k]=ch[x][!k]]=f;
-	Update(f);
+	Pullup(f);
 	ch[x][!k]=f;
 	fa[f]=x;
-	Update(x);
+	Pullup(x);
 }
 
 void Pushdown(int x)
@@ -76,11 +73,11 @@ void Splay(int x)
 
 void Access(int o)
 {
-	for(int y=0,x=o;x;y=x,x=fa[x])
+	for(int x=o,y=0;x;y=x,x=fa[x])
 	{
 		Splay(x);
 		ch[x][1]=y;
-		Update(x);
+		Pullup(x);
 	}
 	Splay(o);
 }
@@ -102,7 +99,7 @@ void Cut(int x,int y)
 	MkRt(x);
 	Access(y);
 	ch[y][0]=fa[x]=0;
-	Update(y);
+	Pullup(y);
 }
 
 int main()
