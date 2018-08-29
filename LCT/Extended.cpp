@@ -1,6 +1,3 @@
-/*
-I can maintain size of subtree!
-*/
 #include<bits/stdc++.h>
 
 using namespace std;
@@ -8,31 +5,6 @@ using namespace std;
 #define LL long long
 
 const int N=100000+10;
-
-const int _B=1e6;
-
-char Nc()
-{
-	static char buf[_B],*p=buf,*q=buf;
-	return ((p==q)&&(q=buf+fread(buf,1,_B,stdin))==(p=buf))?0:*(p++);
-}
-
-int Read()
-{
-	char ch;
-	while(!isdigit(ch=Nc()));
-	int sum=ch-48;
-	while(isdigit(ch=Nc()))
-		sum=sum*10+ch-48;
-	return sum;
-}
-
-char Upper()
-{
-	char ch;
-	while(!isupper(ch=Nc()));
-	return ch;
-}
 
 int n,q,ch[N][2],lz[N],sz[N],fa[N],w[N],sm[N];
 
@@ -118,11 +90,11 @@ void MkRt(int x)
 
 void Link(int x,int y)
 {
-	MkRt(x);
+	Access(x);
 	MkRt(y);
 	fa[y]=x;
 	w[x]+=sm[y];
-	Pullup(x);
+	sm[x]+=sm[y];
 }
 
 LL Query(int x,int y)

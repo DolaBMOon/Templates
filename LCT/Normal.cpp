@@ -3,9 +3,6 @@
 using namespace std;
 
 const int N=500000+10;
-const int INF=0x3f3f3f3f;
-
-int n,m;
 
 int ch[N][2],fa[N],lz[N],u[N],v[N],sm[N],w[N];
 
