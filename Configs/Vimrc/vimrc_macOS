@@ -3,6 +3,7 @@ set number
 set scrolloff=30
 set ts=2
 set sw=2
+set mouse=a
 syntax on
 vmap "+y :w !pbcopy<CR><CR>
 nmap "+p :r !pbpaste<CR><CR>
