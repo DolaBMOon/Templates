@@ -16,8 +16,11 @@ int Which(int x)
 
 void Apply(int x)
 {
-	lz[x]^=1;
-	swap(ch[x][0],ch[x][1]);
+	if(x)
+	{
+		lz[x]^=1;
+		swap(ch[x][0],ch[x][1]);
+	}
 }
 
 bool isRt(int x)
@@ -51,10 +54,8 @@ void Pushdown(int x)
 {
 	if(x&&lz[x])
 	{
-		if(ch[x][0])
-			Apply(ch[x][0]);
-		if(ch[x][1])
-			Apply(ch[x][1]);
+		Apply(ch[x][0]);
+		Apply(ch[x][1]);
 		lz[x]=0;
 	}
 }
