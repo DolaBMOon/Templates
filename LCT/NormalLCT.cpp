@@ -71,7 +71,7 @@ void Splay(int x)
 	Climb(x);
 	for(int f;!isRt(x);Rotate(x))
 		if(!isRt(f=fa[x]))
-			Rotate((Which(f)==Which(x))?f:x);
+			Rotate((Which(f)^Which(x))?x:f);
 }
 
 void Access(int o)
