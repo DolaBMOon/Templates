@@ -35,13 +35,13 @@ void Update(int x)
 
 void Rotate(int x)
 {
-	register int f=fa[x],ff=fa[f],k=Which(x);
+	register int f=fa[x],gf=fa[f],k=Which(x);
 	if(!isRt(f))
 	{
-		ch[ff][Which(f)]=x;
-		Update(ff);
+		ch[gf][Which(f)]=x;
+		Update(gf);
 	}
-	fa[x]=ff;
+	fa[x]=gf;
 	ch[f][k]=ch[x][!k];
 	fa[ch[f][k]]=f;
 	Update(f);
