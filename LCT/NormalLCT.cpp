@@ -42,8 +42,7 @@ void Rotate(int x)
 		Update(gf);
 	}
 	fa[x]=gf;
-	ch[f][k]=ch[x][!k];
-	fa[ch[f][k]]=f;
+	fa[ch[f][k]=ch[x][!k]]=f;
 	Update(f);
 	ch[x][!k]=f;
 	fa[f]=x;
