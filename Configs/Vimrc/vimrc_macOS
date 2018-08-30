@@ -10,6 +10,7 @@ nmap "+p :r !pbpaste<CR><CR>
 nmap ` ggvG$"+y
 
 func! CppFunc()
+	set cindent
 	command! WN %s/%lld/%I64d/g
 	command! LN %s/%I64d/%lld/g
 	command! UBW normal :w<cr>:e ~/oi/Templates/Header/Header.cpp<cr>ggvG$"0y:bp<cr>ggvGD"0p
