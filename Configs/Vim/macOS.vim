@@ -17,14 +17,14 @@ func! CppFunc()
 	nmap <F7> :w<cr>:!g++-7 % -o %.out -O2 -std=c++14<cr>
 	nmap <F8> :!time ./%.out<cr>
 	nmap <F9> :w<cr>:!g++-7 % -o %.out -O2 -std=c++14 -Wall -ftrapv -fsanitize=address<cr>
-endfunc
+	endfunc
 
 au filetype cpp call CppFunc()
 
 func! PythonFunc()
 	nmap <F7> :w<cr>:!python3 %<cr>
 	nmap <F9> :w<cr>:!python3 -i %<cr>
-endfunc
+	endfunc
 
 au filetype python call PythonFunc()
 
@@ -32,6 +32,6 @@ func! RubyFunc()
 	nmap <F7> :w<cr>:!ruby %<cr>
 	nmap <F8> :w<cr>:!ruby -c %<cr>
 	nmap <F9> :w<cr>:!irb %<cr>
-endfunc
+	endfunc
 
 au filetype ruby call RubyFunc()
