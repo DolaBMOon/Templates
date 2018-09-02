@@ -11,7 +11,7 @@ func! CppFunc()
 	set cindent
 	command! WN %s/%lld/%I64d/g
 	command! LN %s/%I64d/%lld/g
-	command! UBW normal :w<cr>:e ~/oi/Templates/Header/Header.cpp<cr>ggvG$"0y:bp<cr>ggvGD"0p
+	command! UBW normal :w<cr>:e ~/OI/Templates/Header/Header.cpp<cr>ggvG$"0y:bp<cr>ggvGD"0p
 	nmap <F7> :w<cr>:!g++-7 % -o %.out -O2 -std=c++14<cr>
 	nmap <F8> :!time ./%.out<cr>
 	nmap <F9> :w<cr>:!g++-7 % -o %.out -O2 -std=c++14 -Wall -ftrapv -fsanitize=address<cr>
