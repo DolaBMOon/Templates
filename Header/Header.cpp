@@ -7,8 +7,8 @@
 using namespace std;
 
 #define Whats(x) cout<<#x<<" is "<<(x)<<endl
-#define Divhe() cout<<">>>>>>>>>>>>>>>"<<endl
-#define Divshe() cout<<"<<<<<<<<<<<<<<<"<<endl
+#define DivHe() cout<<">>>>>>>>>>>>>>>"<<endl
+#define DivHer() cout<<"<<<<<<<<<<<<<<<"<<endl
 #define Oops() cout<<"!!!!!!!!!!!!!!!"<<endl
 
 /*
