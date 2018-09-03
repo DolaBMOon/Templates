@@ -22,7 +22,7 @@ int U(int x,int y)
 	return ((x+=y)>=MOD)?(x-MOD):x;
 }
 
-void SU(int& x,int y)
+void SU(int &x,int y)
 {
 	((x+=y)>=MOD)?(x-=MOD):0;
 }
@@ -32,7 +32,7 @@ int D(int x,int y)
 	return ((x-=y)<0)?(x+MOD):x;
 }
 
-void SD(int& x,int y)
+void SD(int &x,int y)
 {
 	((x-=y)<0)?(x+=MOD):0;
 }

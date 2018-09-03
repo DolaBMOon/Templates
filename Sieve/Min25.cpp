@@ -7,7 +7,7 @@ using namespace std;
 const int M=1e6;
 const int MOD=1e9+7;
 
-void SU(int& x,int y)
+void SU(int &x,int y)
 {
 	x+=y;
 	while(x<0)

@@ -13,33 +13,33 @@ struct Vector
 	double x,y;
 };
 
-Vector operator*(const Vector& a,const Vector& b)
+Vector operator*(const Vector &a,const Vector &b)
 {
 	return (Vector){a.x*b.x-a.y*b.y,a.x*b.y+a.y*b.x};
 }
 
-Vector operator+(const Vector& a,const Vector& b)
+Vector operator+(const Vector &a,const Vector &b)
 {
 	return (Vector){a.x+b.x,a.x+b.y};
 }
 
-Vector operator-(const Vector& a,const Vector& b)
+Vector operator-(const Vector &a,const Vector &b)
 {
 	return (Vector){a.x-b.x,a.y-b.y};
 }
 
-void operator+=(Vector& a,const Vector& b)
+void operator+=(Vector &a,const Vector &b)
 {
 	a.x+=b.x;
 	a.y+=b.y;
 }
 
-void FFT(Poly2& A,bool fl)
+void FFT(Poly2 &A,bool fl)
 {
 	int L=A.size();
 	if(fl)
 	{
-		for(Vector& v:A)
+		for(Vector &v:A)
 		{
 			v.x/=L;
 			v.y/=L;
@@ -87,7 +87,7 @@ Poly operator*(Poly A,Poly B)
 	for(int i=0;i<(int)B.size();++i)
 		C[i].y=B[i];
 	FFT(C,false);
-	for(Vector& v:C)
+	for(Vector &v:C)
 		v=v*v;
 	FFT(C,true);
 	static Poly D;
