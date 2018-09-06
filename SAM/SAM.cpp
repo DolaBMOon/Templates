@@ -10,7 +10,7 @@ using namespace std;
 
 const int N=1000000+10;
 
-int ch[N][26],fa[N],dep[N],last=1,sz=1;
+int nxt[N][26],fa[N],dep[N],last=1,sz=1;
 
 void Append(int c)
 {
@@ -22,15 +22,15 @@ void Append(int c)
 	//}
 	int p=last,nw=last=++sz;
 	dep[nw]=dep[p]+1;
-	for(;p&&!ch[p][c];p=fa[p])
-		ch[p][c]=nw;
+	for(;p&&!nxt[p][c];p=fa[p])
+		nxt[p][c]=nw;
 	if(!p)
 	{
 		fa[nw]=1;
 		return;
 	}
 
-	int q=ch[p][c];
+	int q=nxt[p][c];
 	if(dep[p]+1==dep[q])
 	{
 		fa[nw]=q;
@@ -38,11 +38,11 @@ void Append(int c)
 	}
 	int clone=++sz;
 	dep[clone]=dep[p]+1;
-	memcpy(ch[clone],ch[q],104);
+	memcpy(nxt[clone],nxt[q],104);
 	fa[clone]=fa[q];
 	fa[nw]=fa[q]=clone;
-	for(;p&&ch[p][c]==q;p=fa[p])
-		ch[p][c]=clone;
+	for(;p&&nxt[p][c]==q;p=fa[p])
+		nxt[p][c]=clone;
 }
 
 int main()
