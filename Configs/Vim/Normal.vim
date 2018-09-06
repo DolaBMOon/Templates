@@ -13,6 +13,7 @@ nmap ` ggvG$"+y
 
 func! CppFunc()
 	set cindent
+	command! W w
 	command! WN %s/%lld/%I64d/g
 	command! LN %s/%I64d/%lld/g
 	command! LL normal :%s/%d/%lld/g<cr>:%s/int main/signed main/g<cr>
