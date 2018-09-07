@@ -11,19 +11,19 @@ using namespace std;
 #define DivHer() cout<<"<<<<<<<<<<<<<<<"<<endl
 #define Oops() cout<<"!!!!!!!!!!!!!!!"<<endl
 
-temaplte<typename T> void GetMin(T &a,T b)
+template<typename T> void GetMin(T &a,T b)
 {
 	a=((a<b)?a:b);
 }
 
-temaplte<typename T> void GetMax(T &a,T b)
+template<typename T> void GetMax(T &a,T b)
 {
 	a=((a>b)?a:b);
 }
 
 /*
--<Unlimited Blade Works>-
-*/
+	 -<Unlimited Blade Works>-
+ */
 
 int main()
 {
