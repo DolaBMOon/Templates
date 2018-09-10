@@ -13,12 +13,12 @@ using namespace std;
 
 template<typename T> void GetMin(T &a,T b)
 {
-	a=((a<b)?a:b);
+	return ((a<=b)?false:(a=b,true));
 }
 
 template<typename T> void GetMax(T &a,T b)
 {
-	a=((a>b)?a:b);
+	return ((a>=b)?false:(a=b,true));
 }
 
 /*
