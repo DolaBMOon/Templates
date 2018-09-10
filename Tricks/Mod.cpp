@@ -4,7 +4,7 @@ using namespace std;
 
 const int MOD=998244353;
 
-signed Mul(signed a,signed b)
+int Mul(signed a,signed b)
 {
 	static signed MO=MOD;
 	unsigned long long x=(long long)a*b;
