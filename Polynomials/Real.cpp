@@ -13,6 +13,15 @@ struct Vector
 	double x,y;
 };
 
+ostream& operator<<(ostream &os,const Poly &p)
+{
+	os<<"(";
+	for(int i=0;i<(int)p.size()-1;++i)
+		os<<p[i]<<",";
+	os<<p.back()<<")";
+	return os;
+}
+
 Vector operator*(const Vector &a,const Vector &b)
 {
 	return (Vector){a.x*b.x-a.y*b.y,a.x*b.y+a.y*b.x};
