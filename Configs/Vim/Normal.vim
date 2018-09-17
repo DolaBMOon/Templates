@@ -19,9 +19,9 @@ func! CppFunc()
 	command! LL normal :%s/%d/%lld/g<cr>:%s/int main/signed main/g<cr>
 	command! IN normal :%s/%lld/%d/g<cr>:%s/signed main/int main/g<cr>
 	command! UBW normal :w<cr>:e ~/OI/Templates/Header/Header.cpp<cr>ggvG$"0y:bp<cr>ggvGD"0p
-	nmap <F7> :w<cr>:!g++ % -o %.out -O2 -std=c++17<cr>
+	nmap <F7> :w<cr>:!g++ % -o %.out -O2<cr>
 	nmap <F8> :!time ./%.out<cr>
-	nmap <F9> :w<cr>:!g++ % -o %.out -O2 -std=c++17 -Wall -ftrapv -fsanitize=address<cr>
+	nmap <F9> :w<cr>:!g++ % -o %.out -O2 -Wall -ftrapv -fsanitize=address<cr>
 	endfunc
 
 au filetype cpp call CppFunc()
