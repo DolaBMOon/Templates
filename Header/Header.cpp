@@ -11,14 +11,14 @@ using namespace std;
 #define DivHer() cout<<"<<<<<<<<<<<<<<<"<<endl
 #define Oops() cout<<"!!!!!!!!!!!!!!!"<<endl
 
-template<typename T> void GetMin(T &a,T b)
+template<typename T> bool GetMin(T &a,T b)
 {
-	a=((a<b)?a:b);
+	return ((a<=b)?false:(a=b,true));
 }
 
-template<typename T> void GetMax(T &a,T b)
+template<typename T> bool GetMax(T &a,T b)
 {
-	a=((a>b)?a:b);
+	return ((a>=b)?false:(a=b,true));
 }
 
 /*

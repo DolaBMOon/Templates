@@ -46,7 +46,16 @@ int D(int x,int y)
 
 void SD(int &x,int y)
 {
-  return ((x-=y)<0)?(x+=MOD):0;
+  ((x-=y)<0)?(x+=MOD):0;
+}
+
+ostream& operator<<(ostream &os,const Poly &p)
+{
+	os<<"(";
+	for(int i=0;i<(int)p.size()-1;++i)
+		os<<p[i]<<",";
+	os<<p.back()<<")";
+	return os;
 }
 
 void FFT(Poly &A,bool fl)

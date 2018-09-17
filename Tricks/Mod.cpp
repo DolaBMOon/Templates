@@ -4,15 +4,16 @@ using namespace std;
 
 const int MOD=998244353;
 
-int Mul(int a,int b)
+int Mul(signed a,signed b)
 {
+	static signed MO=MOD;
 	unsigned long long x=(long long)a*b;
 	unsigned xh=(unsigned)(x>>32),xl=(unsigned)x,d,m;
 	asm
 		(
 		 "divl %4;\n\t"
 		 :"=a"(d),"=d"(m)
-		 :"d"(xh),"a"(xl),"r"(MOD)
+		 :"d"(xh),"a"(xl),"r"(MO)
 		);
 	return m;
 }
