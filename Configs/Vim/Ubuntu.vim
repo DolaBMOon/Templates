@@ -7,10 +7,6 @@ set mouse=a
 syntax on
 nmap ` ggvG$"+y
 
-" For macOS
-" vmap "+y :w !pbcopy<CR><CR>
-" nmap "+p :r !pbpaste<CR><CR>
-
 func! CppFunc()
 	set cindent
 	command! W w
@@ -18,7 +14,7 @@ func! CppFunc()
 	command! LN %s/%I64d/%lld/g
 	command! LL normal :%s/%d/%lld/g<cr>:%s/int main/signed main/g<cr>
 	command! IN normal :%s/%lld/%d/g<cr>:%s/signed main/int main/g<cr>
-	command! UBW normal :w<cr>:e ~/OI/Templates/Header/Header.cpp<cr>ggvG$"0y:bp<cr>ggvGD"0p
+	command! UBW !cat ~/OI/Templates/Header/Header.cpp >> %
 	nmap <F7> :w<cr>:!g++ % -o %.out -O2<cr>
 	nmap <F8> :!time ./%.out<cr>
 	nmap <F9> :w<cr>:!g++ % -o %.out -O2 -Wall -ftrapv -fsanitize=address<cr>
