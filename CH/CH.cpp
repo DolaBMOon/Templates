@@ -5,7 +5,6 @@ using namespace std;
 #define LL long long
 
 const int MOD=998244353;
-const int NB=100;
 
 int Mul(int a,int b)
 {
@@ -99,6 +98,7 @@ namespace CHSolver
 			SU(ans,Mul(g[i],v[n+i-1]));
 		return ans;
 	}
+
 }
 
 int main()

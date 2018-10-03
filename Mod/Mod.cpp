@@ -4,6 +4,17 @@ using namespace std;
 
 const int MOD=998244353;
 
+namespace MLL
+{
+
+	long long Mul(long long x,long long y,long long mo)
+	{
+			long long tmp=((unsigned long long)x*y-(unsigned long long)((long double)x/mo*y+1.0e-8)*mo);
+				return (tmp<0)?(tmp+mo):tmp;
+	}
+
+}
+
 int Mul(signed a,signed b)
 {
 	static signed MO=MOD;
