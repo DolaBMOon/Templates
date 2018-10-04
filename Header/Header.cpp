@@ -7,8 +7,8 @@
 using namespace std;
 
 #define Whats(x) cout<<#x<<" is "<<(x)<<endl
-#define DivHim() cout<<">>>>>>>>>>>>>>>"<<endl
-#define DivHer() cout<<"<<<<<<<<<<<<<<<"<<endl
+#define Divhim() cout<<">>>>>>>>>>>>>>>"<<endl
+#define Divher() cout<<"<<<<<<<<<<<<<<<"<<endl
 #define Oops() cout<<"!!!!!!!!!!!!!!!"<<endl
 
 template<typename T> bool GetMin(T &a,T b)
