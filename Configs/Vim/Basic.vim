@@ -2,7 +2,6 @@ set nu
 filetype indent on
 set ts=2
 set sw=2
-set fdm=indent
 syntax on
 nmap ` ggvG$"+y
 nmap <F7> :w<cr>:!g++ % -o %.out<cr>

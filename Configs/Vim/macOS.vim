@@ -4,7 +4,6 @@ set scrolloff=30
 set ts=2
 set sw=2
 set mouse=a
-set fdm=indent
 syntax on
 nmap ` ggvG$"+y
 
