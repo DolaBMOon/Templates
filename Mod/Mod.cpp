@@ -10,7 +10,7 @@ namespace MLL
 	long long Mul(long long x,long long y,long long mo)
 	{
 		long long tmp=x*y-(long long)((long double)x/mo*y+1.0e-8)*mo;
-		return (tmp<0)?(tmp+mo):tmp;
+		return (tmp>=mo)?(tmp-mo:((tmp<0)?(tmp+mo):tmp));
 	}
 
 }
