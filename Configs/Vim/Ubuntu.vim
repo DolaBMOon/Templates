@@ -14,7 +14,7 @@ func! CppFunc()
 	command! LN %s/%I64d/%lld/g
 	command! LL silent! %s/%d/%lld/g | silent! %s/int main/signed main/g
 	command! IN silent! %s/%lld/%d/g | silent! %s/signed main/int main/g
-	command! UBW !cat ~/OI/Templates/Header/Header.cpp >> %
+	command! UBW !cat ~/OI/Templates/Header/Header.cpp > %
 	nmap <F7> :w<cr>:!g++ % -o %.out -O2 -std=c++17<cr>
 	nmap <F8> :!time ./%.out<cr>
 	nmap <F9> :w<cr>:!g++ % -o %.out -O2 -Wall -ftrapv -fsanitize=address -std=c++17<cr>
