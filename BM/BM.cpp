@@ -2,20 +2,14 @@
 
 using namespace std;
 
+#define LL long long
+
 const int MOD=998244353;
 const int NB=1000;
 
 int Mul(int a,int b)
 {
-	unsigned long long x=(long long)a*b;
-	unsigned xh=(unsigned)(x>>32),xl=(unsigned)x,d,m;
-	asm
-		(
-		 "divl %4;\n\t"
-		 :"=a"(d),"=d"(m)
-		 :"d"(xh),"a"(xl),"r"(MOD)
-		);
-	return m;
+	return (LL)a*b%MOD;
 }
 
 int Qpow(int x,int y=MOD-2)
