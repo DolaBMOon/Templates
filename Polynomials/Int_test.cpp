@@ -44,10 +44,10 @@ void SD(int &x,int y)
 
 ostream& operator<<(ostream &os,const Poly &p)
 {
-	os<<"(";
+	os<<"{";
 	for(int i=0;i<(int)p.size()-1;++i)
 		os<<p[i]<<",";
-	os<<p.back()<<")";
+	os<<p.back()<<"}";
 	return os;
 }
 
@@ -92,21 +92,6 @@ void FFT(Poly &A,bool fl)
 	}
 }
 
-Poly operator*(Poly A,Poly B)
-{
-	int need=A.size()+B.size()-1,L;
-	for(L=1;L<need;L<<=1);
-	A.resize(L);
-	FFT(A,false);
-	B.resize(L);
-	FFT(B,false);
-	for(int i=0;i<L;++i)
-		A[i]=Mul(A[i],B[i]);
-	FFT(A,true);
-	A.resize(need);
-	return A;
-}
-
 Poly Inv(Poly A)
 {
 	int L=A.size();
@@ -129,7 +114,51 @@ Poly Inv(Poly A)
 	return B;
 }
 
+Poly operator*(Poly A,Poly B)
+{
+	int need=A.size()+B.size()-1,L;
+	for(L=1;L<need;L<<=1);
+	A.resize(L);
+	FFT(A,false);
+	B.resize(L);
+	FFT(B,false);
+	for(int i=0;i<L;++i)
+		A[i]=Mul(A[i],B[i]);
+	FFT(A,true);
+	A.resize(need);
+	return A;
+}
+
+Poly operator/(Poly A,Poly B)
+{
+	int n=A.size(),m=B.size(),p=1,t=n-m+1;
+	for(;p<(t<<1);p<<=1);
+	reverse(A.begin(),A.end());
+	A.resize(t);
+	reverse(B.begin(),B.end());
+	B.resize(t);
+	A=A*Inv(B);
+	A.resize(t);
+	reverse(A.begin(),A.end());
+	return A;
+}
+
+Poly operator-(Poly A,Poly B)
+{
+	for(int i=B.size()-1;i>=0;--i)
+		SD(A[i],B[i]);
+	return A;
+}
+
+Poly operator%(Poly A,Poly B)
+{
+	A=A-A/B*B;
+	A.resize(B.size()-1);
+	return A;
+}
+
 int main()
 {
+	cout<<((Poly){1,2,3}%(Poly){1,1});
 	return 0;
 }
