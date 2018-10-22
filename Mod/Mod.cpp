@@ -2,6 +2,8 @@
 
 using namespace std;
 
+#define LL long long
+
 const int MOD=998244353;
 
 namespace MLL
@@ -10,23 +12,38 @@ namespace MLL
 	long long Mul(long long x,long long y,long long mo)
 	{
 		long long tmp=x*y-(long long)((long double)x/mo*y+1.0e-8)*mo;
-		return (tmp>=mo)?(tmp-mo:((tmp<0)?(tmp+mo):tmp));
+		return (tmp>=mo)?(tmp-mo):((tmp<0)?(tmp+mo):tmp);
 	}
 
 }
 
-int Mul(signed a,signed b)
+namespace HB
 {
-	static signed MO=MOD;
-	unsigned long long x=(long long)a*b;
-	unsigned xh=(unsigned)(x>>32),xl=(unsigned)x,d,m;
-	asm
-		(
-		 "divl %4;\n\t"
-		 :"=a"(d),"=d"(m)
-		 :"d"(xh),"a"(xl),"r"(MO)
-		);
-	return m;
+
+	int Mul(signed a,signed b)
+	{
+		static signed MO=MOD;
+		unsigned long long x=(long long)a*b;
+		unsigned xh=(unsigned)(x>>32),xl=(unsigned)x,d,m;
+		asm
+			(
+			 "divl %4;\n\t"
+			 :"=a"(d),"=d"(m)
+			 :"d"(xh),"a"(xl),"r"(MO)
+			);
+		return m;
+	}
+
+}
+
+int Mul(int x,int y)
+{
+	return (LL)x*y%MOD;
+}
+
+void SMul(int &x,int y)
+{
+	x=(LL)x*y%MOD;
 }
 
 int U(int x,int y)
