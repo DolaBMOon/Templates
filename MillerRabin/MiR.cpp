@@ -18,10 +18,7 @@ void SMul(LL &x,LL y,LL mo)
 
 bool MiR(LL x)
 {
-	LL o,y=x-1;
-	do
-		o=rand()%x;
-	while(!o);
+	LL y=x-1,o=rand()%y+1;
 	for(;!(y&1);y>>=1);
 	LL r=1,z=y;
 	for(;y;y>>=1,SMul(o,o,x))if(y&1)
