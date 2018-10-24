@@ -12,7 +12,8 @@ LL Mul(LL x,LL y,LL mo)
 
 void SMul(LL &x,LL y,LL mo)
 {
-	x=Mul(x,y,mo);
+	if((x=(x*y-(LL)((long double)x/mo*y+1.0e-8)*mo))<0)
+		x+=mo;
 }
 
 bool MiR(LL x)
