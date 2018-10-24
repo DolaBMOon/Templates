@@ -35,7 +35,9 @@ bool MiR(LL x)
 
 bool isP(LL x)
 {
-	return x<=7?x==2||x==3||x==5||x==7:x%2!=0&&x%3!=0&&x%5!=0&&x%7!=0&&MiR(x)&&MiR(x)&&MiR(x)&&MiR(x);
+	return (x<=7)?
+		(x==2||x==3||x==5||x==7):
+		(x%2!=0&&x%3!=0&&x%5!=0&&x%7!=0&&MiR(x)&&MiR(x)&&MiR(x)&&MiR(x));
 }
 
 int main()
